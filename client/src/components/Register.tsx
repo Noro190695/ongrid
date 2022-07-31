@@ -11,14 +11,11 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Alert} from "@mui/material";
 import {NavLink} from "react-router-dom";
-
+import {IAuth} from "./SignIn";
 
 const theme = createTheme();
-export interface IAuth {
-    method?: any,
-    message?: string
-}
-export default function SignIn({ method, message}: IAuth) {
+
+export default function Register({ method, message}: IAuth) {
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
@@ -54,11 +51,18 @@ export default function SignIn({ method, message}: IAuth) {
                             margin="normal"
                             required
                             fullWidth
+                            id="name"
+                            label="Name"
+                            name="name"
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
                             id="email"
                             label="Email Address"
                             name="email"
                             autoComplete="email"
-                            autoFocus
                         />
                         <TextField
                             margin="normal"
@@ -68,7 +72,15 @@ export default function SignIn({ method, message}: IAuth) {
                             label="Password"
                             type="password"
                             id="password"
-                            autoComplete="current-password"
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password_confirmation"
+                            label="Password Confirmation"
+                            type="password"
+                            id="password_confirmation"
                         />
                         <Button
                             type="submit"
@@ -83,11 +95,11 @@ export default function SignIn({ method, message}: IAuth) {
                             justifyContent: 'flex-start',
                             flex:1,
                         }}>
-                            <NavLink to="/register">
+                            <NavLink to="/login">
                                 <Typography sx={{
                                     color: '#039be5',
                                 }}>
-                                    {"Don't have an account? Sign Up"}
+                                    {"have an account? Sign In"}
                                 </Typography>
                             </NavLink>
                         </Box>

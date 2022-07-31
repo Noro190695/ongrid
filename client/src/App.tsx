@@ -1,14 +1,13 @@
 import React from 'react';
-import {CheckAuth} from "./components/CheckAuth";
-import {Profile} from "./components/Profile";
+import Dashboard from "./components/Dashbord";
+
 
 
 function App() {
+
   return (
     <div className="App">
-        <CheckAuth isAuth={false}>
-            <Profile />
-        </CheckAuth>
+        <Dashboard />
     </div>
   );
 }
